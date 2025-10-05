@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="eVauQsxZw0u2GHUafARPnQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="accounts.google.com/v3/signin/identifier" CVScreenId="7a71b82b-c5d0-4722-bae5-d7db90205133" CvElementArea="1526, 723, 106, 55" CvTextArea="1559, 741, 41, 17" CvTextArgument="Next" CvType="Button" DesignTimeRectangle="1531, 721, 98, 60" FullSelectorArgument="&lt;webctrl class='VfPpkd-RLmnJb' parentid='identifierNext' tag='DIV' /&gt;" Guid="73329ef8-7cc4-4254-acf6-5510cca1e624" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sign in to continue to Gmail' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="7a71b82b-c5d0-4722-bae5-d7db90205133" CvElementArea="1526, 723, 106, 55" CvTextArea="1559, 741, 41, 17" CvTextArgument="Next" CvType="Button" DesignTimeRectangle="1561, 738, 38, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='identifierNext' tag='SPAN' type='' class='VfPpkd-vQzf8d' aaname='Next' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Next' /&gt;" Guid="8fd6982e-56f1-4f46-b347-66e8182b0b5b" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="88a5e085be4249f30fc38b28aaf98275.png" xmlns="">0b0c9Ruut4UGY12VI1N70NA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="5qetIs5TTkeMN2b6CgS4_A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="accounts.google.com/v3/signin/challenge/pwd" CVScreenId="19a0776a-6c14-4f55-9589-435078d09642" CvElementArea="1002, 523, 627, 71" CvType="InputBox" DesignTimeRectangle="1002, 527, 625, 65" ElementType="InputBoxPassword" FullSelectorArgument="&lt;webctrl tag='INPUT' type='password' /&gt;" Guid="1d320659-b36a-4260-9f07-1660dda14741" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Welcome' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="19a0776a-6c14-4f55-9589-435078d09642" CvElementArea="1002, 523, 627, 71" CvType="InputBox" DesignTimeRectangle="1009, 516, 151, 18" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Enter your password' parentid='password' tag='DIV' type='' class='AxOyFc snByac' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Enter your password' /&gt;" Guid="4fdc5682-3030-43ef-88c6-503c8ead7269" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="4ba848037efed75ad5d730530610669f.png" xmlns="">0iWlfw2TNp0y5GvP5yFuajg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

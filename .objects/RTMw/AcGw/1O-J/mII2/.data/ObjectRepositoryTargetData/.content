@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Iq5-M8jS9UW9Py1UHb54Cw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="accounts.google.com/v3/signin/identifier" CVScreenId="388cb007-9c2a-4cd3-b8c2-21c914eb3a41" CvElementArea="1001, 462, 628, 72" CvType="InputBox" DesignTimeRectangle="1002, 466, 625, 65" ElementType="InputBox" FullSelectorArgument="&lt;webctrl id='identifierId' tag='INPUT' /&gt;" Guid="f34463c2-e5ad-405c-94ef-3ae13bd51ee9" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Sign in to continue to Gmail' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="388cb007-9c2a-4cd3-b8c2-21c914eb3a41" CvElementArea="1001, 462, 628, 72" CvType="InputBox" DesignTimeRectangle="1009, 454, 117, 19" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Email or phone' tag='DIV' type='' class='AxOyFc snByac' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Email or phone' /&gt;" Guid="a516c61e-611c-431b-86f8-b93dd428a6a2" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="011c56f07bcc18f83738a504bc4d14a6.png" xmlns="">0M6KRDNE2okOyeZzkirv1qg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

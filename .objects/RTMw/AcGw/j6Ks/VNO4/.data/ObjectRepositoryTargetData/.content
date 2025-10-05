@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="b1EMA_4wrEKhQ62D1c05iw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="accounts.google.com/v3/signin/challenge/pwd" CVScreenId="9353ec11-01b2-494e-a0fa-6eb4e9784e49" CvElementArea="1526, 713, 106, 55" CvTextArea="1559, 730, 41, 17" CvTextArgument="Next" CvType="Button" DesignTimeRectangle="1531, 710, 98, 60" FullSelectorArgument="&lt;webctrl class='VfPpkd-RLmnJb' parentid='passwordNext' tag='DIV' /&gt;" Guid="2fb86e7e-256f-412a-a866-1bd13c580848" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Welcome' /&gt;" SearchSteps="Selector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="9353ec11-01b2-494e-a0fa-6eb4e9784e49" CvElementArea="1526, 713, 106, 55" CvTextArea="1559, 730, 41, 17" CvTextArgument="Next" CvType="Button" DesignTimeRectangle="1561, 727, 38, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl parentid='passwordNext' tag='SPAN' type='' class='VfPpkd-vQzf8d' aaname='Next' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' check:innerText='Next' /&gt;" Guid="bce6e95d-944d-480c-93a6-19073f7a0e58" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="553013e35af7b8824efac49c4e63d6e2.png" xmlns="">0oVVQMhnHNE-PL94IzbCyTw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

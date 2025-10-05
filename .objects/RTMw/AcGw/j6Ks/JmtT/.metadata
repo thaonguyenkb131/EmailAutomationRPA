@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Enter your password",
+  "Type": "Element",
+  "TaxonomyType": "Password",
+  "Id": "JmtTr7AvtE6xkI5dpVAELA",
+  "Reference": "1FfKqrX0O0SxAo0NSIX3nQ/JmtTr7AvtE6xkI5dpVAELA",
+  "ParentRef": "1FfKqrX0O0SxAo0NSIX3nQ/j6KsLYRpRUa-APYKJZQugQ",
+  "Created": "2025-10-05T14:55:02.2907775Z",
+  "Updated": "2025-10-05T14:55:02.2907775Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

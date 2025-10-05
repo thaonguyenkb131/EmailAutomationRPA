@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="erADuTCf7EOo66gTd_ke1A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="accounts.google.com/v3/signin/challenge/pwd" CVScreenId="9353ec11-01b2-494e-a0fa-6eb4e9784e49" CvElementArea="996, 523, 635, 72" CvType="InputBox" DesignTimeRectangle="1002, 527, 625, 65" ElementType="InputBoxPassword" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='password' class='whsOnd zHQkBf' aaname='' matching:class='fuzzy' fuzzylevel:class='0.0' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' /&gt;" Guid="ee1c6660-fc3a-4c6a-b68e-8c1de01b042f" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Welcome' /&gt;" SearchSteps="FuzzySelector, CV" Version="V6" Visibility="Interactive" WaitForReadyArgument="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="9353ec11-01b2-494e-a0fa-6eb4e9784e49" CvElementArea="996, 523, 635, 72" CvType="InputBox" DesignTimeRectangle="1009, 548, 202, 24" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Enter your password' parentid='password' tag='DIV' type='' class='AxOyFc snByac' matching:aaname='fuzzy' fuzzylevel:aaname='0.0' matching:parentid='fuzzy' fuzzylevel:parentid='0.0' matching:class='fuzzy' fuzzylevel:class='0.0' check:innerText='Enter your password' /&gt;" Guid="6a0afc71-6300-46ea-95f0-e5396dc67a4b" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="085139b69c68e16e4a74eeded890088b.png" xmlns="">0RD4FjPER8EmONjoNiWBisA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

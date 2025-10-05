@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Next",
+  "Type": "Element",
+  "Id": "VNO4YSsRakW5C08egpvtrw",
+  "Reference": "1FfKqrX0O0SxAo0NSIX3nQ/VNO4YSsRakW5C08egpvtrw",
+  "ParentRef": "1FfKqrX0O0SxAo0NSIX3nQ/j6KsLYRpRUa-APYKJZQugQ",
+  "Created": "2025-10-05T14:56:50.9215808Z",
+  "Updated": "2025-10-05T14:56:50.9215808Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=25.10.13.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=25.6.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
