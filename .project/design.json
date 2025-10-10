@@ -2,5 +2,8 @@
   "Tags": [],
   "SeparateRuntimeDependencies": true,
   "IncludeSources": true,
-  "ConnectorKeys": []
+  "ConnectorKeys": [
+    "uipath-openai-openai",
+    "uipath-openai-openaiv1compliant"
+  ]
 }

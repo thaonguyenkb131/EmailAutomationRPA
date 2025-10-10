@@ -9123,6 +9123,58 @@
         "DefaultValueSource": "Property"
       }
     ],
+    "UiPath.MicrosoftSentiment.IntegrationService.Activities.Scope": [
+      {
+        "Type": "Connection",
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          }
+        },
+        "DefaultValueSource": "Default"
+      }
+    ],
+    "UiPath.MicrosoftSentiment.IntegrationService.Activities.SentimentAnalysis": [
+      {
+        "Type": "Connection",
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          }
+        },
+        "DefaultValueSource": "Default"
+      }
+    ],
     "UiPath.OpenAI.IntegrationService.Activities.GenerateChatCompletion": [
       {
         "Type": "Connection",
