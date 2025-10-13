@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Assignto" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Assignto_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:eca="clr-namespace:Emgu.CV.Aruco;assembly=Emgu.CV" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Assignto" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Assignto_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:eca="clr-namespace:Emgu.CV.Aruco;assembly=Emgu.CV" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugage="clr-namespace:UiPath.GSuite.Activities.Gmail.Enums;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -43,6 +43,14 @@
       <x:String>UiPath.Shared.Api.Google.Gmail.Models</x:String>
       <x:String>Emgu.CV.Aruco</x:String>
       <x:String>Emgu.Util</x:String>
+      <x:String>UiPath.Mail</x:String>
+      <x:String>UiPath.Mail.Activities.Enums</x:String>
+      <x:String>UiPath.Mail.Outlook.Activities</x:String>
+      <x:String>UiPath.Mail.Activities</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>UiPath.Mail.Activities.Utils</x:String>
+      <x:String>UiPath.Mail.Activities.Business.HtmlEditor</x:String>
+      <x:String>UiPath.Mail.Activities.Business</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -112,13 +120,31 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>netstandard</AssemblyReference>
       <AssemblyReference>Emgu.CV</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.CodeDom</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Assignto" sap:VirtualizedContainerService.HintSize="560.6666666666666,3084" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Assignto" sap:VirtualizedContainerService.HintSize="558.6666666666666,5106" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="sendStatus" />
+      <Variable x:TypeArguments="x:String" Name="mailSubject" />
+      <Variable x:TypeArguments="x:String" Name="mailBody" />
+      <Variable x:TypeArguments="x:String" Name="dept_Email" />
+      <Variable x:TypeArguments="x:String" Name="dept_Name" />
       <Variable x:TypeArguments="eca:Dictionary" Name="deptDictionary" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtData" />
-      <Variable x:TypeArguments="sd:DataTable" Name="dtDepart" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Department" />
+      <Variable x:TypeArguments="x:Int32" Name="index">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">ForEachRow_1</x:String>
+            <x:String x:Key="SourcePropertyName">CurrentIndex</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -126,14 +152,14 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtData]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="506,120" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="Sheet1" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
-    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtDepart]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="506,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Sheet1" WorkbookPath="Department\Department_List.xlsx" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="506,2821.3333333333335" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_Department]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="506,120" sap2010:WorkflowViewState.IdRef="ReadRange_3" SheetName="Sheet1" WorkbookPath="Department\Department_List.xlsx" />
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[index]" DataTable="[dtData]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="506,4704.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="504,2646.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_13">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="504,4520.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_13">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="category" />
               <Variable x:TypeArguments="x:String" Name="deptDict" />
@@ -203,7 +229,7 @@
                     <OutArgument x:TypeArguments="x:Object">[CurrentRow("Department")]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:Object">["Marketing"]</InArgument>
+                    <InArgument x:TypeArguments="x:Object">["BD"]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
@@ -278,7 +304,7 @@
                     <OutArgument x:TypeArguments="x:Object">[CurrentRow("Department")]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:Object">["N/A"]</InArgument>
+                    <InArgument x:TypeArguments="x:Object">["Customer Service"]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
@@ -293,7 +319,7 @@
                     <OutArgument x:TypeArguments="x:Object">[CurrentRow("Department")]</OutArgument>
                   </Assign.To>
                   <Assign.Value>
-                    <InArgument x:TypeArguments="x:Object">["N/A"]</InArgument>
+                    <InArgument x:TypeArguments="x:Object">["Customer Service"]</InArgument>
                   </Assign.Value>
                 </Assign>
               </Sequence>
@@ -313,10 +339,140 @@
                 </Assign>
               </Sequence>
             </Switch>
-            <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtData]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="470,138.66666666666666" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
+            <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtData]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="470,148" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
+            <Assign sap:VirtualizedContainerService.HintSize="470,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_12">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[dept_Name]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[CurrentRow("Department").ToString().Trim()]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <If Condition="[String.IsNullOrWhiteSpace(CurrentRow(&quot;Assign_to&quot;).ToString)]" sap:VirtualizedContainerService.HintSize="470,1747.3333333333333" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,1389.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="s:DateTime" Name="timeAssigned" />
+                    <Variable x:TypeArguments="x:String" Name="assign_TimeAssigned" />
+                    <Variable x:TypeArguments="s:DateTime" Name="deadlineDate" />
+                    <Variable x:TypeArguments="x:String" Name="bodymail" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,118.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_17">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[dept_Email]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String" xml:space="preserve">[dt_Department.AsEnumerable().
+    Where(Function(r) r("Department_Name").ToString.Trim.Equals(CurrentRow("Department").ToString.Trim)).
+    Select(Function(r) r("Department_Email").ToString).
+    FirstOrDefault()]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_18">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("Assign_to")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">[If(String.IsNullOrEmpty(dept_Email), "", dept_Email)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_22">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("Time_Assigned")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">[Now.ToString("yyyy-MM-dd HH:mm:ss")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_23">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="s:DateTime">[deadlineDate]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="s:DateTime">[DateTime.Parse(CurrentRow("Time_Assigned").ToString).AddDays(3)]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,118.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_26">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:String">[bodymail]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:String" xml:space="preserve">["&lt;html&gt;&lt;body&gt;" &amp;
+"&lt;p&gt;Xin chào &lt;b&gt;" &amp; dept_Email &amp; "&lt;/b&gt;,&lt;/p&gt;" &amp;
+"&lt;p&gt;Bạn được phân công xử lý nhiệm vụ có mã: &lt;b&gt;" &amp; CurrentRow("No").ToString &amp; "&lt;/b&gt;.&lt;/p&gt;" &amp;
+"&lt;p&gt;Loại công việc: &lt;b&gt;" &amp; CurrentRow("Category").ToString &amp; "&lt;/b&gt;&lt;/p&gt;" &amp;
+"&lt;p&gt;Phòng ban phụ trách: &lt;b&gt;" &amp; CurrentRow("Department").ToString &amp; "&lt;/b&gt;&lt;/p&gt;" &amp;
+"&lt;p&gt;Thời gian phân công: &lt;b&gt;" &amp; CurrentRow("Time_Assigned").ToString &amp; "&lt;/b&gt;&lt;/p&gt;" &amp;
+"&lt;p&gt;&lt;b style='color:red;'&gt;Deadline hoàn thành: " &amp; deadlineDate.ToString("dd/MM/yyyy") &amp; "&lt;/b&gt;&lt;/p&gt;" &amp;
+"&lt;p&gt;Vui lòng thực hiện đúng thời hạn. Xin cảm ơn!&lt;/p&gt;" &amp;
+"&lt;/body&gt;&lt;/html&gt;"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" Body="[bodymail]" ConnectionId="80b20ac1-e255-4dd9-b899-f09d5698164a" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434,397.3333333333333" sap2010:WorkflowViewState.IdRef="SendEmailConnections_3" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="[&quot;Phân công nhiệm vụ #&quot; &amp; CurrentRow(&quot;No&quot;).ToString]" To="[New List(Of String) From {dept_Email}]" UseConnectionService="True">
+                    <uga:SendEmailConnections.Attachments>
+                      <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)" />
+                    </uga:SendEmailConnections.Attachments>
+                    <uga:SendEmailConnections.AttachmentsBackup>
+                      <usau:BackupSlot x:TypeArguments="ugage:AttachmentInputMode" StoredValue="UseExisting">
+                        <usau:BackupSlot.BackupValues>
+                          <scg:Dictionary x:TypeArguments="ugage:AttachmentInputMode, scg:List(x:Object)" />
+                        </usau:BackupSlot.BackupValues>
+                      </usau:BackupSlot>
+                    </uga:SendEmailConnections.AttachmentsBackup>
+                    <uga:SendEmailConnections.InputTypeBackup>
+                      <usau:BackupSlot x:TypeArguments="ugage:BodyInputType" StoredValue="HTML">
+                        <usau:BackupSlot.BackupValues>
+                          <scg:Dictionary x:TypeArguments="ugage:BodyInputType, scg:List(x:Object)" />
+                        </usau:BackupSlot.BackupValues>
+                      </usau:BackupSlot>
+                    </uga:SendEmailConnections.InputTypeBackup>
+                  </uga:SendEmailConnections>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_19">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("KeepTrack")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">["Assigned"]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_20">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("Time_Assigned")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">[Now.ToString("yyyy-MM-dd HH:mm:ss")]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                  <Assign sap:VirtualizedContainerService.HintSize="434,108" sap2010:WorkflowViewState.IdRef="Assign_25">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Object">[CurrentRow("Deadline")]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Object">[deadlineDate]</InArgument>
+                    </Assign.Value>
+                  </Assign>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Skipped row &quot; &amp; dtData.Rows.IndexOf(CurrentRow).ToString() &amp; &quot; - Already assigned to &quot; &amp; CurrentRow(&quot;Assign_to&quot;).ToString()]" />
+                </Sequence>
+              </If.Else>
+            </If>
           </Sequence>
         </ActivityAction>
       </ui:ForEachRow.Body>
     </ui:ForEachRow>
+    <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dtData]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="506,138.66666666666666" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="Sheet1" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
   </Sequence>
 </Activity>
