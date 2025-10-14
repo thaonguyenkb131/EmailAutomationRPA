@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:isactr="http://schemas.uipath.com/workflow/integration-service-activities/isactr" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umae="clr-namespace:UiPath.Mail.Activities.Enums;assembly=UiPath.Mail.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:umae="clr-namespace:UiPath.Mail.Activities.Enums;assembly=UiPath.Mail.Activities" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.Mail.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -23,8 +23,6 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
-      <x:String>GlobalVariablesNamespace</x:String>
-      <x:String>GlobalConstantsNamespace</x:String>
       <x:String>System.Linq.Expressions</x:String>
       <x:String>System.Runtime.Serialization</x:String>
       <x:String>System.Security</x:String>
@@ -155,6 +153,8 @@
       <x:String>UiPath.IntegrationService.Activities.Runtime.Activities</x:String>
       <x:String>UiPath.Platform.Activities</x:String>
       <x:String>UiPath.IntegrationService.Activities.SWEntities.C2AA0D6B748_v2_sub_generateChatCompletion_Create.Bundle</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
       <x:String>UiPath.IntegrationService.Activities.SWEntities.C2AA0D6B748_generateEmail_Create.Bundle</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
@@ -309,8 +309,9 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="830.8000000000001,3470.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1152.6461538461538,2482.707692307692" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="nameSheet" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Email" />
       <Variable x:TypeArguments="x:String" Name="creUsername" />
       <Variable x:TypeArguments="ss:SecureString" Name="crePassword" />
@@ -323,17 +324,25 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Gmail_IMAP_Cred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Email Automation RPA" sap:VirtualizedContainerService.HintSize="513.6,175.2" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[crePassword]" Username="[creUsername]" />
-    <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="513.6,56.8" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAKVs26ZSehkqh+LfmiEtGiQAAAAACAAAAAAAQZgAAAAEAACAAAAB80yYABcFelXBCktwCIdHvO2WjpDSfMzGXul9bLmhVCgAAAAAOgAAAAAIAACAAAADc57Npt8lhdzDdT5Qa/p/H1L+fnq3rQqUpHHWZ0dlS5SAAAACZrgSbD9R3G6U3vpGE0LY1RSuRWHZCjay9UNVtaKUBakAAAABMlZ+qIOArM9/Xp33EY2CFlH8WmhF3yf0X41EfWiXeH4kazW1vOtphpMgvaQP5uBTiRl/puCWHIPBuJisGOm/i" Result="[password]" />
-    <ui:BuildDataTable DataTable="[dt_Email]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="513.6,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;No&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Sender_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Sender_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Received_Time&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Body_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Sentiment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Category&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Assign_x0020_to&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Department&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Keyword&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Keeptrack&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+    <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Gmail_IMAP_Cred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Email Automation RPA" sap:VirtualizedContainerService.HintSize="514.7076923076922,175.01538461538462" sap2010:WorkflowViewState.IdRef="GetRobotCredential_1" Password="[crePassword]" Username="[creUsername]" />
+    <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="514.7076923076922,56.86153846153846" sap2010:WorkflowViewState.IdRef="GetPassword_1" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7uN5JRLJrku0jGb5+XZRywAAAAACAAAAAAAQZgAAAAEAACAAAAChl3RiA0g8XWofEnuQPK0g8M9tBQcFTlx6VGvg/K+5qwAAAAAOgAAAAAIAACAAAABrH4FUwv/x0AuZG6W8mAhpy0jH++UloCElfzQODh3CnyAAAAATPoZj7CKcsGQIfo+L0H4wmiibB3JjDXkWJ8bEiWID4EAAAABHOJYyWsANx4Uro2TUI/ehm3ko4+i/V7pSdY1td3utZnmEke3varmD069uapPvjpUcTZB7+T/9W7mrTxn2IejA" Result="[password]" />
+    <ui:BuildDataTable DataTable="[dt_Email]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="514.7076923076922,91.56923076923077" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;No&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Sender_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Sender_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Received_Time&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Body_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Sentiment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Category&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Assign_x0020_to&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Time_Assigned&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Department&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Keyword&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Keeptrack&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Deadline&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:BuildDataTable>
-    <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dt_Email]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="513.6,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
-    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" ConnectionMode="LegacyConfiguration" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[creUsername]" EnableSSL="True" FilterExpression="[&quot;SINCE &quot; + Now.AddDays(-1).ToString(&quot;dd-MMM-yyyy&quot;)]" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="513.6,174.4" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="inbox" MarkAsRead="False" Messages="[email_list]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Password="[password]" Port="993" SecureConnection="Auto" Server="imap.gmail.com" Top="10" UseISConnection="False" UseOAuth="True">
+    <Assign sap:VirtualizedContainerService.HintSize="514.7076923076922,114.46153846153845" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[nameSheet]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[Now.ToString("dd-MM-yyyy")]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dt_Email]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="514.7076923076922,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[nameSheet]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
+    <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" ConnectionMode="LegacyConfiguration" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[creUsername]" EnableSSL="True" FilterExpression="[&quot;SINCE &quot; + Now.AddDays(-5).ToString(&quot;dd-MMM-yyyy&quot;)]" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="514.7076923076922,174.27692307692305" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="inbox" MarkAsRead="False" Messages="[email_list]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Password="[password]" Port="993" SecureConnection="Auto" Server="imap.gmail.com" UseISConnection="False" UseOAuth="True">
       <ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
         <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="LegacyConfiguration">
           <usau:BackupSlot.BackupValues>
@@ -342,7 +351,7 @@
         </usau:BackupSlot>
       </ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
     </ui:GetIMAPMailMessages>
-    <Assign sap:VirtualizedContainerService.HintSize="513.6,113.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="514.7076923076922,114.46153846153845" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[rowNumb]</OutArgument>
       </Assign.To>
@@ -350,13 +359,13 @@
         <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="[rowNumb]" DisplayName="For Each email" sap:VirtualizedContainerService.HintSize="513.6,2687.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[email_list]">
+    <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="[rowNumb]" DisplayName="For Each email" sap:VirtualizedContainerService.HintSize="514.7076923076922,1585.476923076923" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[email_list]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="snm:MailMessage">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="email" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,2565.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512.4923076923077,1463.6307692307691" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="senderEmail" />
               <Variable x:TypeArguments="x:String" Name="senderName" />
@@ -373,7 +382,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.4,304.8" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.52307692307687,304.24615384615385" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
               <ui:MultipleAssign.AssignOperations>
                 <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                   <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -427,108 +436,13 @@
                 </scg:List>
               </ui:MultipleAssign.AssignOperations>
             </ui:MultipleAssign>
-            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ mailNo.ToString, senderName.ToString, senderEmail.ToString, receivedTime.ToString, subjectEmail.ToString, bodyEmail.ToString }]" DataTable="[dt_Email]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478.4,220" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;A&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.4,148" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="Sheet1" Text="[mailNo.ToString]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
-            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;B&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.4,148" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="Sheet1" Text="[senderName]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
-            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;C&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.4,148" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="Sheet1" Text="[senderEmail]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
-            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;D&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.4,148" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="Sheet1" Text="[receivedTime]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
-            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;E&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.4,148" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="Sheet1" Text="[subjectEmail]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
-            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;F&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.4,148" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="Sheet1" Text="[bodyEmail]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
-            <Sequence sap2010:Annotation.AnnotationText="String.Format(&quot;Analyze the email below and return JSON only (no explanation). &#xD;&#xA;The JSON format should be:&#xD;&#xA;{{ &quot;&quot;sentiment&quot;&quot;: &quot;&quot;Positive or Neutral or Negative&quot;&quot;, &#xD;&#xA;   &quot;&quot;category&quot;&quot;: &quot;&quot;Complaint or Quotation or Technical Support or Compliment&quot;&quot; }}.&#xD;&#xA;Email: {0}&quot;, bodyEmail)" sap:VirtualizedContainerService.HintSize="478.4,424" sap2010:WorkflowViewState.IdRef="Sequence_7">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </Sequence>
-            <isactr:ConnectorActivity Configuration="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" ConnectionId="547a9875-2367-471f-ad45-a9e1e9a9c82b" DisplayName="Generate text based on a prompt." sap:VirtualizedContainerService.HintSize="478.4,216" sap2010:WorkflowViewState.IdRef="ConnectorActivity_1" UiPathActivityTypeId="652dfbbc-e788-39b9-83a3-29bf382692c4">
-              <isactr:ConnectorActivity.FieldObjects>
-                <isactr:FieldObject Name="prompt" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:String" xml:space="preserve">[String.Format("Analyze the email below and return JSON only (no explanation). 
-The JSON format should be:
-{{ ""sentiment"": ""Positive or Neutral or Negative"", 
-   ""category"": ""Complaint or Quotation or Technical Support or Compliment"" }}.
-Email: {0}", bodyEmail)]</InArgument>
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="model" Type="FieldArgument" />
-                <isactr:FieldObject Name="max_tokens" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="n" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:Int64" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="temperature" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:Double" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="top_p" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:Double" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="suffix" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:String" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="stream" Type="FieldArgument" />
-                <isactr:FieldObject Name="logprobs" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="echo" Type="FieldArgument" />
-                <isactr:FieldObject Name="_stop" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:String" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="presence_penalty" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:Double" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="frequency_penalty" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:Double" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="best_of" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:Int32" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="user" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <InArgument x:TypeArguments="x:String" />
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="out_text" Type="FieldArgument">
-                  <isactr:FieldObject.Value>
-                    <OutArgument x:TypeArguments="x:String">[aiResult]</OutArgument>
-                  </isactr:FieldObject.Value>
-                </isactr:FieldObject>
-                <isactr:FieldObject Name="Jit_generateTextCompletion" Type="FieldArgument" />
-              </isactr:ConnectorActivity.FieldObjects>
-            </isactr:ConnectorActivity>
-            <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Deserialize JSON" sap:VirtualizedContainerService.HintSize="478.4,173.6" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_2" JsonObject="[jsonResult]" JsonString="[aiResult]" />
-            <Assign sap:VirtualizedContainerService.HintSize="478.4,113.6" sap2010:WorkflowViewState.IdRef="Assign_3">
-              <Assign.To>
-                <OutArgument x:TypeArguments="x:String">[sentiment]</OutArgument>
-              </Assign.To>
-              <Assign.Value>
-                <InArgument x:TypeArguments="x:String">[jsonResult("sentiment").ToString]</InArgument>
-              </Assign.Value>
-            </Assign>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478.4,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[sentiment]" />
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ mailNo.ToString, senderName.ToString, senderEmail.ToString, receivedTime.ToString, subjectEmail.ToString, bodyEmail.ToString }]" DataTable="[dt_Email]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478.52307692307687,222.27692307692305" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;A&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.52307692307687,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[nameSheet]" Text="[mailNo.ToString]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
+            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;B&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.52307692307687,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="[nameSheet]" Text="[senderName]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
+            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;C&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.52307692307687,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="[nameSheet]" Text="[senderEmail]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
+            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;D&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.52307692307687,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteCell_4" SheetName="[nameSheet]" Text="[receivedTime]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
+            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;E&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.52307692307687,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteCell_5" SheetName="[nameSheet]" Text="[subjectEmail]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
+            <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;F&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.52307692307687,138.83076923076922" sap2010:WorkflowViewState.IdRef="WriteCell_6" SheetName="[nameSheet]" Text="[bodyEmail]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
