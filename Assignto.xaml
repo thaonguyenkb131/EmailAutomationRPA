@@ -403,7 +403,7 @@
                       <OutArgument x:TypeArguments="s:DateTime">[deadlineDate]</OutArgument>
                     </Assign.To>
                     <Assign.Value>
-                      <InArgument x:TypeArguments="s:DateTime">[DateTime.Parse(CurrentRow("Time_Assigned").ToString).AddDays(3)]</InArgument>
+                      <InArgument x:TypeArguments="s:DateTime">[DateTime.Parse(CurrentRow("Time_Assigned").ToString).AddDays(2)]</InArgument>
                     </Assign.Value>
                   </Assign>
                   <Assign sap:VirtualizedContainerService.HintSize="434.2153846153846,115.93846153846154" sap2010:WorkflowViewState.IdRef="Assign_26">
@@ -474,7 +474,7 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434.2153846153846,165.4153846153846" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Skipped row &quot; &amp; dtData.Rows.IndexOf(CurrentRow).ToString() &amp; &quot; - Already assigned to &quot; &amp; CurrentRow(&quot;Assign_to&quot;).ToString()]" />
+                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434.2153846153846,165.4153846153846" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Skipped row &quot; &amp; dtData.Rows.IndexOf(CurrentRow).ToString() &amp; &quot; - Already assigned to &quot; &amp; CurrentRow(&quot;Assign to&quot;).ToString()]" />
                 </Sequence>
               </If.Else>
             </If>
