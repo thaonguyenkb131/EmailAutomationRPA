@@ -125,6 +125,7 @@
       <AssemblyReference>System.CodeDom</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Forms</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Assignto" sap:VirtualizedContainerService.HintSize="1152.6461538461538,5257.107692307692" sap2010:WorkflowViewState.IdRef="Sequence_1">

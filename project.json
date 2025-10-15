@@ -2,7 +2,7 @@
   "name": "Email Automation RPA",
   "projectId": "44eea247-29c3-405d-b671-04d936b0e1ed",
   "description": "Blank Process",
-  "main": "Main.xaml",
+  "main": "draft_workflow_email.xaml",
   "dependencies": {
     "InternalLabs.DatatableToJson.Activities": "[1.0.0]",
     "InternalLabs.EnableExtensioninincognitomode.Activities": "[1.0.2]",
@@ -61,6 +61,12 @@
     {
       "filePath": "Main.xaml",
       "uniqueId": "3afeb5e7-6ba4-46b8-a24d-34009cec89ec",
+      "input": [],
+      "output": []
+    },
+    {
+      "filePath": "draft_workflow_email.xaml",
+      "uniqueId": "f3738535-3e35-4305-86f9-a8584f355554",
       "input": [],
       "output": []
     }
