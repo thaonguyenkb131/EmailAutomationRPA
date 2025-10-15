@@ -116,7 +116,7 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Deadline_Monitoring" sap:VirtualizedContainerService.HintSize="1152.6461538461538,4758.6461538461535" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Deadline_Monitoring" sap:VirtualizedContainerService.HintSize="1152.6461538461538,4644.184615384615" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="status" />
       <Variable x:TypeArguments="sd:DataTable" Name="dtAssigned" />
@@ -138,13 +138,13 @@
     </Assign>
     <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dtAssigned]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="615.1384615384615,119.63076923076922" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[sheetName]" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
     <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_Department]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="615.1384615384615,119.63076923076922" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="sheet1" WorkbookPath="Department\Department_List.xlsx" />
-    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtAssigned]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="615.1384615384615,4243.2" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dtAssigned]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="615.1384615384615,4128.738461538462" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
       <ui:ForEachRow.Body>
         <ActivityAction x:TypeArguments="sd:DataRow">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="612.9230769230769,4061.5384615384614" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="612.9230769230769,3947.076923076923" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="s:DateTime" Name="now" />
               <Variable x:TypeArguments="x:String" Name="status" />
@@ -185,12 +185,10 @@
 )]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim parsedDate As DateTime&#xD;&#xA;Dim rawValue As Object = CurrentRow(&quot;Time_Assigned&quot;)&#xD;&#xA;&#xD;&#xA;If TypeOf rawValue Is DateTime Then&#xD;&#xA;    parsedDate = CType(rawValue, DateTime)&#xD;&#xA;&#xD;&#xA;ElseIf TypeOf rawValue Is String Then&#xD;&#xA;    Dim textValue As String = rawValue.ToString.Trim&#xD;&#xA;    Dim formats As String() = {&#xD;&#xA;        &quot;MM/dd/yyyy HH:mm&quot;,&#xD;&#xA;        &quot;MM/dd/yyyy HH:mm:ss&quot;,&#xD;&#xA;        &quot;yyyy-MM-dd HH:mm&quot;,&#xD;&#xA;        &quot;yyyy-MM-dd HH:mm:ss&quot;&#xD;&#xA;    }&#xD;&#xA;&#xD;&#xA;    Dim success As Boolean = False&#xD;&#xA;    For Each f As String In formats&#xD;&#xA;        If DateTime.TryParseExact(textValue, f, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, parsedDate) Then&#xD;&#xA;            success = True&#xD;&#xA;            Exit For&#xD;&#xA;        End If&#xD;&#xA;    Next&#xD;&#xA;&#xD;&#xA;    If Not success Then&#xD;&#xA;        ' fallback nếu chuỗi không khớp format nào&#xD;&#xA;        DateTime.TryParse(textValue, parsedDate)&#xD;&#xA;    End If&#xD;&#xA;Else&#xD;&#xA;    ' fallback cho kiểu dữ liệu lạ (DBNull, etc.)&#xD;&#xA;    parsedDate = DateTime.MinValue&#xD;&#xA;End If&#xD;&#xA;&#xD;&#xA;assignTime = parsedDate&#xD;&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="578.9538461538461,196.43076923076922" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim parsedDate As DateTime&#xA;Dim rawValue As Object = CurrentRow(&quot;Time_Assigned&quot;)&#xA;&#xA;If TypeOf rawValue Is DateTime Then&#xA;    parsedDate = CType(rawValue, DateTime)&#xA;&#xA;ElseIf TypeOf rawValue Is String Then&#xA;    Dim textValue As String = rawValue.ToString.Trim&#xA;    Dim formats As String() = {&#xA;        &quot;MM/dd/yyyy HH:mm&quot;,&#xA;        &quot;MM/dd/yyyy HH:mm:ss&quot;,&#xA;        &quot;yyyy-MM-dd HH:mm&quot;,&#xA;        &quot;yyyy-MM-dd HH:mm:ss&quot;&#xA;    }&#xA;&#xA;    Dim success As Boolean = False&#xA;    For Each f As String In formats&#xA;        If DateTime.TryParseExact(textValue, f, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, parsedDate) Then&#xA;            success = True&#xA;            Exit For&#xA;        End If&#xA;    Next&#xA;&#xA;    If Not success Then&#xA;        ' fallback nếu chuỗi không khớp format nào&#xA;        DateTime.TryParse(textValue, parsedDate)&#xA;    End If&#xA;Else&#xA;    ' fallback cho kiểu dữ liệu lạ (DBNull, etc.)&#xA;    parsedDate = DateTime.MinValue&#xA;End If&#xA;&#xA;assignTime = parsedDate&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="578.9538461538461,196.43076923076922" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
               <ui:InvokeCode.Arguments>
                 <OutArgument x:TypeArguments="s:DateTime" x:Key="assignTime" />
-                <InArgument x:TypeArguments="sd:DataRow" x:Key="CurrentRow">
-                  <VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="CurrentRow" />
-                </InArgument>
+                <InArgument x:TypeArguments="sd:DataRow" x:Key="CurrentRow">[CurrentRow]</InArgument>
               </ui:InvokeCode.Arguments>
             </ui:InvokeCode>
             <Assign sap:VirtualizedContainerService.HintSize="578.9538461538461,114.46153846153845" sap2010:WorkflowViewState.IdRef="Assign_3">
@@ -201,7 +199,7 @@
                 <InArgument x:TypeArguments="x:Double">[(now - assignTime).TotalHours]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[status = &quot;Done&quot;]" sap:VirtualizedContainerService.HintSize="578.9538461538461,3345.9692307692308" sap2010:WorkflowViewState.IdRef="If_4">
+            <If Condition="[status = &quot;Done&quot;]" sap:VirtualizedContainerService.HintSize="578.9538461538461,3231.507692307692" sap2010:WorkflowViewState.IdRef="If_4">
               <If.Then>
                 <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="576.7384615384615,225.23076923076923" sap2010:WorkflowViewState.IdRef="Sequence_9">
                   <sap:WorkflowViewStateService.ViewState>
@@ -213,21 +211,21 @@
                 </Sequence>
               </If.Then>
               <If.Else>
-                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="576.7384615384615,2990.7692307692305" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="576.7384615384615,2876.3076923076924" sap2010:WorkflowViewState.IdRef="Sequence_10">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <If Condition="[status = &quot;Assigned&quot;]" sap:VirtualizedContainerService.HintSize="542.7692307692307,2930.953846153846" sap2010:WorkflowViewState.IdRef="If_8">
+                  <If Condition="[status = &quot;Assigned&quot;]" sap:VirtualizedContainerService.HintSize="542.7692307692307,2816.4923076923073" sap2010:WorkflowViewState.IdRef="If_8">
                     <If.Then>
-                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="540.5538461538462,2710.8923076923074" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="540.5538461538462,2596.430769230769" sap2010:WorkflowViewState.IdRef="Sequence_15">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <If Condition="[timeDiff &gt;= 24 And timeDiff &lt; 48]" sap:VirtualizedContainerService.HintSize="506.58461538461535,2651.076923076923" sap2010:WorkflowViewState.IdRef="If_9">
+                        <If Condition="[timeDiff &gt;= 24 And timeDiff &lt; 48]" sap:VirtualizedContainerService.HintSize="506.58461538461535,2536.6153846153843" sap2010:WorkflowViewState.IdRef="If_9">
                           <If.Then>
                             <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="504.36923076923074,1063.3846153846152" sap2010:WorkflowViewState.IdRef="Sequence_11">
                               <Sequence.Variables>
@@ -305,6 +303,14 @@
 )]</InArgument>
                                 </Assign.Value>
                               </Assign>
+                              <Assign sap:VirtualizedContainerService.HintSize="470.4,114.46153846153845" sap2010:WorkflowViewState.IdRef="Assign_25">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Object">[CurrentRow("ReminderCount")]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Object">["1"]</InArgument>
+                                </Assign.Value>
+                              </Assign>
                               <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" Body="[body_remind_email]" ConnectionId="80b20ac1-e255-4dd9-b899-f09d5698164a" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="470.4,491.8153846153846" sap2010:WorkflowViewState.IdRef="SendEmailConnections_4" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="[Nhắc nhở] Xử lý email trễ hạn - Lần 1" To="[New List(Of String) From {dept_Email}]" UseConnectionService="True">
                                 <uga:SendEmailConnections.Attachments>
                                   <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)" />
@@ -329,27 +335,19 @@
                                   </usau:BackupSlot>
                                 </uga:SendEmailConnections.InputTypeBackup>
                               </uga:SendEmailConnections>
-                              <Assign sap:VirtualizedContainerService.HintSize="470.4,114.46153846153845" sap2010:WorkflowViewState.IdRef="Assign_20">
-                                <Assign.To>
-                                  <OutArgument x:TypeArguments="x:Object">[CurrentRow("ReminderCount")]</OutArgument>
-                                </Assign.To>
-                                <Assign.Value>
-                                  <InArgument x:TypeArguments="x:Object">["1"]</InArgument>
-                                </Assign.Value>
-                              </Assign>
                               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="470.4,165.4153846153846" sap2010:WorkflowViewState.IdRef="LogMessage_12" Message="[&quot;Đã gửi email lần 1&quot;]" />
                             </Sequence>
                           </If.Then>
                           <If.Else>
-                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="504.36923076923074,1457.7230769230769" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="504.36923076923074,1343.2615384615383" sap2010:WorkflowViewState.IdRef="Sequence_14">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <If Condition="[timeDiff &gt;= 48 AndAlso CurrentRow(&quot;ReminderCount&quot;).ToString = &quot;1&quot;]" sap:VirtualizedContainerService.HintSize="470.4,1397.9076923076923" sap2010:WorkflowViewState.IdRef="If_10">
+                              <If Condition="[timeDiff &gt;= 48 AndAlso CurrentRow(&quot;ReminderCount&quot;).ToString = &quot;1&quot;]" sap:VirtualizedContainerService.HintSize="470.4,1283.4461538461537" sap2010:WorkflowViewState.IdRef="If_10">
                                 <If.Then>
-                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468.18461538461537,1177.8461538461538" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                                  <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468.18461538461537,1063.3846153846152" sap2010:WorkflowViewState.IdRef="Sequence_12">
                                     <Sequence.Variables>
                                       <Variable x:TypeArguments="x:String" Name="managerEmail" />
                                       <Variable x:TypeArguments="x:String" Name="body_report_manager" />
@@ -419,14 +417,6 @@
     currentRow("Deadline").ToString,         ' {5}
     currentRow("ReminderCount").ToString     ' {6}
 )]</InArgument>
-                                      </Assign.Value>
-                                    </Assign>
-                                    <Assign sap:VirtualizedContainerService.HintSize="434.2153846153846,114.46153846153845" sap2010:WorkflowViewState.IdRef="Assign_23">
-                                      <Assign.To>
-                                        <OutArgument x:TypeArguments="x:Object">[CurrentRow("ReminderCount")]</OutArgument>
-                                      </Assign.To>
-                                      <Assign.Value>
-                                        <InArgument x:TypeArguments="x:Object">["2"]</InArgument>
                                       </Assign.Value>
                                     </Assign>
                                     <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" Body="[body_report_manager]" ConnectionId="80b20ac1-e255-4dd9-b899-f09d5698164a" DisplayName="Send Email" sap:VirtualizedContainerService.HintSize="434.2153846153846,491.8153846153846" sap2010:WorkflowViewState.IdRef="SendEmailConnections_5" Importance="Normal" InputType="HTML" SaveAsDraft="False" Subject="[Báo cáo] Email trễ hạn sau 2 lần nhắc" To="[New List(Of String) From {managerEmail}]" UseConnectionService="True">
