@@ -59,6 +59,7 @@
       <x:String>UiPath.GSuite.Activities.Gmail.Enums</x:String>
       <x:String>UiPath.GSuite.Activities</x:String>
       <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>System.Numerics</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -136,9 +137,10 @@
       <AssemblyReference>Microsoft.VisualBasic.Core</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart DisplayName="draft_workflow_email" sap:VirtualizedContainerService.HintSize="1158.6461538461538,577.6258974358974" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+  <Flowchart DisplayName="draft_workflow_email" sap:VirtualizedContainerService.HintSize="566.6666666666666,394.32333333333327" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Name="nameSheet" />
       <Variable x:TypeArguments="sd:DataTable" Name="dt_Email" />
@@ -154,7 +156,7 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-        <av:Size x:Key="ShapeSize">50.215384615384615,50.215384615384615</av:Size>
+        <av:Size x:Key="ShapeSize">50,50</av:Size>
         <av:Point x:Key="ShapeLocation">555,45</av:Point>
         <av:PointCollection x:Key="ConnectorLocation">580.1076923076923,95.21538461538461 580.1076923076923,125.21538461538461 580.0153846153846,125.21538461538461 580.0153846153846,165</av:PointCollection>
       </scg:Dictionary>
@@ -166,27 +168,27 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">525,265</av:Point>
-          <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+          <av:Size x:Key="ShapeSize">110,70</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,335.15384615384613 580.0153846153846,375</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence DisplayName="Read Email &amp; Load Data" sap:VirtualizedContainerService.HintSize="110.03076923076922,70.15384615384615" sap2010:WorkflowViewState.IdRef="Sequence_1">
+      <Sequence DisplayName="Read Email &amp; Load Data" sap:VirtualizedContainerService.HintSize="548.6666666666666,2415.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Gmail_IMAP_Cred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Email Automation RPA" sap:VirtualizedContainerService.HintSize="514.7076923076922,175.01538461538462" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[crePassword]" Username="[creUsername]" />
-        <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="514.7076923076922,56.86153846153846" sap2010:WorkflowViewState.IdRef="GetPassword_2" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA7uN5JRLJrku0jGb5+XZRywAAAAACAAAAAAAQZgAAAAEAACAAAAChl3RiA0g8XWofEnuQPK0g8M9tBQcFTlx6VGvg/K+5qwAAAAAOgAAAAAIAACAAAABrH4FUwv/x0AuZG6W8mAhpy0jH++UloCElfzQODh3CnyAAAAATPoZj7CKcsGQIfo+L0H4wmiibB3JjDXkWJ8bEiWID4EAAAABHOJYyWsANx4Uro2TUI/ehm3ko4+i/V7pSdY1td3utZnmEke3varmD069uapPvjpUcTZB7+T/9W7mrTxn2IejA" Result="[password]" />
-        <ui:BuildDataTable DataTable="[dt_Email]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="514.7076923076922,91.56923076923077" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;No&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Sender_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Sender_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Received_Time&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Body_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Sentiment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Category&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Assign_x0020_to&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Time_Assigned&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Department&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Keyword&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Keeptrack&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Deadline&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
+        <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Gmail_IMAP_Cred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Email Automation RPA" sap:VirtualizedContainerService.HintSize="514.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[crePassword]" Username="[creUsername]" />
+        <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="514.6666666666666,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetPassword_2" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMNr8A5/RukabCgNFBXCquwAAAAACAAAAAAAQZgAAAAEAACAAAAB8qHsOiaz8kOMJPdMQa9yZnnN5OQkcZJEtR6+rCqT+JAAAAAAOgAAAAAIAACAAAABthASz62yOF5POnyY5g5zru7y3dwzmMxYvYpUw9zaF4iAAAABW8nc/8eo1CuIu6QGoUFxWu8KgjPbAqjqaif7YmEkVY0AAAACn723mxFSa67AsJt1UpcJXggt1hCgBI1E1rBIaAq8GGzX54nbfaVbngomyu1CmNnB4A6TtGOJRwzvRaaCXMz7M" Result="[password]" />
+        <ui:BuildDataTable DataTable="[dt_Email]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="514.6666666666666,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;No&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Sender_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Sender_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Received_Time&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Body_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Sentiment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Category&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Assign_x0020_to&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Time_Assigned&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Department&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Keyword&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Keeptrack&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Deadline&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:BuildDataTable>
-        <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dt_Email]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="514.7076923076922,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[nameSheet]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
-        <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" ConnectionMode="LegacyConfiguration" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[creUsername]" EnableSSL="True" FilterExpression="[&quot;SINCE &quot; + Now.AddDays(-5).ToString(&quot;dd-MMM-yyyy&quot;)]" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="514.7076923076922,174.27692307692305" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="inbox" MarkAsRead="False" Messages="[email_list]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Password="[password]" Port="993" SecureConnection="Auto" Server="imap.gmail.com" UseISConnection="False" UseOAuth="True">
+        <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dt_Email]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="514.6666666666666,148" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[nameSheet]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
+        <ui:GetIMAPMailMessages ClientName="{x:Null}" ClientVersion="{x:Null}" SecurePassword="{x:Null}" TimeoutMS="{x:Null}" Top="{x:Null}" ConnectionMode="LegacyConfiguration" DeleteMessages="False" DisplayName="Get IMAP Mail Messages" Email="[creUsername]" EnableSSL="True" FilterExpression="[&quot;SINCE &quot; + Now.AddDays(-1).ToString(&quot;dd-MMM-yyyy&quot;)]" FilterExpressionCharacterSet="US-ASCII" sap:VirtualizedContainerService.HintSize="514.6666666666666,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetIMAPMailMessages_1" IgnoreCRL="False" MailFolder="inbox" MarkAsRead="False" Messages="[email_list]" OnlyUnreadMessages="False" OrderByDate="NewestFirst" Password="[password]" Port="993" SecureConnection="Auto" Server="imap.gmail.com" UseISConnection="False" UseOAuth="True">
           <ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
             <usau:BackupSlot x:TypeArguments="umae:ConnectionDetails" StoredValue="LegacyConfiguration">
               <usau:BackupSlot.BackupValues>
@@ -195,7 +197,7 @@
             </usau:BackupSlot>
           </ui:GetIMAPMailMessages.ConnectionDetailsBackupSlot>
         </ui:GetIMAPMailMessages>
-        <Assign sap:VirtualizedContainerService.HintSize="514.7076923076922,114.46153846153845" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign sap:VirtualizedContainerService.HintSize="514.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
           <Assign.To>
             <OutArgument x:TypeArguments="x:Int32">[rowNumb]</OutArgument>
           </Assign.To>
@@ -203,13 +205,13 @@
             <InArgument x:TypeArguments="x:Int32">[0]</InArgument>
           </Assign.Value>
         </Assign>
-        <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="[rowNumb]" DisplayName="For Each email" sap:VirtualizedContainerService.HintSize="514.7076923076922,1585.476923076923" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[email_list]">
+        <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="[rowNumb]" DisplayName="For Each email" sap:VirtualizedContainerService.HintSize="514.6666666666666,1587.3333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[email_list]">
           <ui:ForEach.Body>
             <ActivityAction x:TypeArguments="snm:MailMessage">
               <ActivityAction.Argument>
                 <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="email" />
               </ActivityAction.Argument>
-              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512.4923076923077,1463.6307692307691" sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512.6666666666666,1464.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="senderEmail" />
                   <Variable x:TypeArguments="x:String" Name="senderName" />
@@ -226,7 +228,7 @@
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.52307692307687,304.24615384615385" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+                <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="478.6666666666667,302.6666666666667" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
                   <ui:MultipleAssign.AssignOperations>
                     <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_1">
@@ -280,7 +282,7 @@
                     </scg:List>
                   </ui:MultipleAssign.AssignOperations>
                 </ui:MultipleAssign>
-                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ mailNo.ToString, senderName.ToString, senderEmail.ToString, receivedTime.ToString, subjectEmail.ToString, bodyEmail.ToString }]" DataTable="[dt_Email]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478.52307692307687,222.27692307692305" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ mailNo.ToString, senderName.ToString, senderEmail.ToString, receivedTime.ToString, subjectEmail.ToString, bodyEmail.ToString }]" DataTable="[dt_Email]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="478.6666666666667,223.33333333333334" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                 <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;A&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.52307692307687,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteCell_1" SheetName="[nameSheet]" Text="[mailNo.ToString]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
                 <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;B&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.52307692307687,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteCell_2" SheetName="[nameSheet]" Text="[senderName]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
                 <ui:WriteCell WorkbookPathResource="{x:Null}" Cell="[&quot;C&quot; + (rowNumb + 2).ToString]" DisplayName="Write Cell Workbook" sap:VirtualizedContainerService.HintSize="478.52307692307687,147.69230769230768" sap2010:WorkflowViewState.IdRef="WriteCell_3" SheetName="[nameSheet]" Text="[senderEmail]" WorkbookPath="EmailAssignment/AssignedEmail.xlsx" />
@@ -297,21 +299,21 @@
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">525,375</av:Point>
-              <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+              <av:Size x:Key="ShapeSize">110,70</av:Size>
               <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,445.15384615384613 580.0153846153846,475</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_Email]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="110.03076923076922,70.15384615384615" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[nameSheet]" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
+          <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_Email]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="ReadRange_2" SheetName="[nameSheet]" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
           <FlowStep.Next>
             <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_6">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">525,475</av:Point>
-                  <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                  <av:Size x:Key="ShapeSize">110,70</av:Size>
                   <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,545.1538461538462 580.0153846153846,575</av:PointCollection>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="SentimentClasification" sap:VirtualizedContainerService.HintSize="110.03076923076922,70.15384615384615" sap2010:WorkflowViewState.IdRef="Sequence_3">
+              <Sequence DisplayName="SentimentClasification" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Sequence_3">
                 <Sequence.Variables>
                   <Variable x:TypeArguments="x:String" Name="sheetName" />
                   <Variable x:TypeArguments="sd:DataTable" Name="dtData" />
@@ -657,17 +659,17 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">525,575</av:Point>
-                      <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                      <av:Size x:Key="ShapeSize">110,70</av:Size>
                       <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,645.1538461538462 580.0153846153846,685</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dt_Email]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="333.7846153846154,115.93846153846152" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[nameSheet]" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
+                  <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dt_Email]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="WriteRange_3" SheetName="[nameSheet]" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
                   <FlowStep.Next>
                     <FlowStep x:Name="__ReferenceID6" sap2010:WorkflowViewState.IdRef="FlowStep_7">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">525,685</av:Point>
-                          <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                          <av:Size x:Key="ShapeSize">110,70</av:Size>
                           <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,755.1538461538462 580.0153846153846,785</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
@@ -677,7 +679,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <av:Point x:Key="ShapeLocation">525,785</av:Point>
-                              <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                              <av:Size x:Key="ShapeSize">110,70</av:Size>
                               <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,855.1538461538462 580.0153846153846,895</av:PointCollection>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -687,7 +689,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">525,895</av:Point>
-                                  <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                                  <av:Size x:Key="ShapeSize">110,70</av:Size>
                                   <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,965.1538461538462 580.0153846153846,1015</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
@@ -1039,7 +1041,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">525,1015</av:Point>
-                                      <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                                      <av:Size x:Key="ShapeSize">110,70</av:Size>
                                       <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,1085.1538461538462 580.0153846153846,1105</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
@@ -1049,7 +1051,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <av:Point x:Key="ShapeLocation">525,1105</av:Point>
-                                          <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                                          <av:Size x:Key="ShapeSize">110,70</av:Size>
                                           <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,1175.1538461538462 580.0153846153846,1205</av:PointCollection>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
@@ -1066,7 +1068,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <av:Point x:Key="ShapeLocation">525,1205</av:Point>
-                                              <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                                              <av:Size x:Key="ShapeSize">110,70</av:Size>
                                               <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,1275.1538461538462 580.0153846153846,1315</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
@@ -1076,7 +1078,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <av:Point x:Key="ShapeLocation">525,1315</av:Point>
-                                                  <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                                                  <av:Size x:Key="ShapeSize">110,70</av:Size>
                                                   <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,1385.1538461538462 580.0153846153846,1415</av:PointCollection>
                                                 </scg:Dictionary>
                                               </sap:WorkflowViewStateService.ViewState>
@@ -1086,7 +1088,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <av:Point x:Key="ShapeLocation">525,1415</av:Point>
-                                                      <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                                                      <av:Size x:Key="ShapeSize">110,70</av:Size>
                                                       <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,1485.1538461538462 580.0153846153846,1515</av:PointCollection>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
@@ -1445,7 +1447,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                                       <sap:WorkflowViewStateService.ViewState>
                                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                           <av:Point x:Key="ShapeLocation">525,1515</av:Point>
-                                                          <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+                                                          <av:Size x:Key="ShapeSize">110,70</av:Size>
                                                         </scg:Dictionary>
                                                       </sap:WorkflowViewStateService.ViewState>
                                                       <ui:WriteRange StartingCell="{x:Null}" WorkbookPathResource="{x:Null}" DataTable="[dt_Email]" DisplayName="Write Range Workbook" sap:VirtualizedContainerService.HintSize="333.7846153846154,115.93846153846152" sap2010:WorkflowViewState.IdRef="WriteRange_8" SheetName="[nameSheet]" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
@@ -1480,11 +1482,11 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">525,165</av:Point>
-          <av:Size x:Key="ShapeSize">110.03076923076922,70.15384615384615</av:Size>
+          <av:Size x:Key="ShapeSize">110,70</av:Size>
           <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,235.15384615384613 580.0153846153846,265</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Assign DisplayName="Assign nameSheet" sap:VirtualizedContainerService.HintSize="110.03076923076922,70.15384615384615" sap2010:WorkflowViewState.IdRef="Assign_19">
+      <Assign DisplayName="Assign nameSheet" sap:VirtualizedContainerService.HintSize="110,70" sap2010:WorkflowViewState.IdRef="Assign_19">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[nameSheet]</OutArgument>
         </Assign.To>
