@@ -60,6 +60,7 @@
       <x:String>UiPath.GSuite.Activities</x:String>
       <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
       <x:String>System.Numerics</x:String>
+      <x:String>System.Globalization</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -180,7 +181,7 @@
         </sap:WorkflowViewStateService.ViewState>
         <ui:GetRobotCredential TimeoutMS="{x:Null}" AssetName="Gmail_IMAP_Cred" CacheStrategy="None" DisplayName="Get Credential" FolderPath="Email Automation RPA" sap:VirtualizedContainerService.HintSize="513.3333333333334,176.66666666666666" sap2010:WorkflowViewState.IdRef="GetRobotCredential_2" Password="[crePassword]" Username="[creUsername]" />
         <ui:GetPassword DisplayName="Get Password" sap:VirtualizedContainerService.HintSize="513.3333333333334,57.333333333333336" sap2010:WorkflowViewState.IdRef="GetPassword_2" ProtectedPassword="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAMNr8A5/RukabCgNFBXCquwAAAAACAAAAAAAQZgAAAAEAACAAAAB8qHsOiaz8kOMJPdMQa9yZnnN5OQkcZJEtR6+rCqT+JAAAAAAOgAAAAAIAACAAAABthASz62yOF5POnyY5g5zru7y3dwzmMxYvYpUw9zaF4iAAAABW8nc/8eo1CuIu6QGoUFxWu8KgjPbAqjqaif7YmEkVY0AAAACn723mxFSa67AsJt1UpcJXggt1hCgBI1E1rBIaAq8GGzX54nbfaVbngomyu1CmNnB4A6TtGOJRwzvRaaCXMz7M" Result="[password]" />
-        <ui:BuildDataTable DataTable="[dt_Email]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="513.3333333333334,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;No&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Sender_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Sender_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Received_Time&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Body_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Sentiment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Category&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Assign_x0020_to&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Time_Assigned&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Department&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Keeptrack&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Deadline&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;">
+        <ui:BuildDataTable DataTable="[dt_Email]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="513.3333333333334,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;No&quot; msdata:Caption=&quot;&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Sender_Name&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Sender_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Received_Time&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Subject&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Body_Email&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Sentiment&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Category&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Assign_x0020_to&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Time_Assigned&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Department&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Keeptrack&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Deadline&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1072,7 +1073,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                               <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,1275.1538461538462 580.0153846153846,1315</av:PointCollection>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
-                                          <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_Email]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="334.00000000000006,88" sap2010:WorkflowViewState.IdRef="ReadRange_7" SheetName="[sheetName]" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
+                                          <ui:ReadRange Range="{x:Null}" WorkbookPathResource="{x:Null}" AddHeaders="True" DataTable="[dt_Email]" DisplayName="Read Range Workbook" sap:VirtualizedContainerService.HintSize="334,88" sap2010:WorkflowViewState.IdRef="ReadRange_7" SheetName="[sheetName]" WorkbookPath="EmailAssignment\AssignedEmail.xlsx" />
                                           <FlowStep.Next>
                                             <FlowStep x:Name="__ReferenceID8" sap2010:WorkflowViewState.IdRef="FlowStep_13">
                                               <sap:WorkflowViewStateService.ViewState>
@@ -1092,19 +1093,19 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                                       <av:PointCollection x:Key="ConnectorLocation">580.0153846153846,1485.1538461538462 580.0153846153846,1515</av:PointCollection>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                  <Sequence DisplayName="Deadline Monitoring" sap:VirtualizedContainerService.HintSize="648.6666666666666,4232" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                                  <Sequence DisplayName="Deadline Monitoring" sap:VirtualizedContainerService.HintSize="648,4232.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_25">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Email]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="614.6666666666666,4172" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+                                                    <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_Email]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="614,4172.666666666667" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
                                                       <ui:ForEachRow.Body>
                                                         <ActivityAction x:TypeArguments="sd:DataRow">
                                                           <ActivityAction.Argument>
                                                             <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                                                           </ActivityAction.Argument>
-                                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="612.6666666666666,3997.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                                          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="612,3998" sap2010:WorkflowViewState.IdRef="Sequence_34">
                                                             <Sequence.Variables>
                                                               <Variable x:TypeArguments="s:DateTime" Name="now" />
                                                               <Variable x:TypeArguments="x:String" Name="status" />
@@ -1116,7 +1117,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                               </scg:Dictionary>
                                                             </sap:WorkflowViewStateService.ViewState>
-                                                            <Assign sap:VirtualizedContainerService.HintSize="578.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_40">
+                                                            <Assign sap:VirtualizedContainerService.HintSize="578,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_40">
                                                               <Assign.To>
                                                                 <OutArgument x:TypeArguments="s:DateTime">[now]</OutArgument>
                                                               </Assign.To>
@@ -1124,7 +1125,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                                                 <InArgument x:TypeArguments="s:DateTime">[DateTime.Now]</InArgument>
                                                               </Assign.Value>
                                                             </Assign>
-                                                            <Assign sap:VirtualizedContainerService.HintSize="578.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_41">
+                                                            <Assign sap:VirtualizedContainerService.HintSize="578,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_41">
                                                               <Assign.To>
                                                                 <OutArgument x:TypeArguments="x:String">[status]</OutArgument>
                                                               </Assign.To>
@@ -1132,7 +1133,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                                                 <InArgument x:TypeArguments="x:String">[CurrentRow("Keeptrack").ToString]</InArgument>
                                                               </Assign.Value>
                                                             </Assign>
-                                                            <Assign sap:VirtualizedContainerService.HintSize="578.6666666666666,118.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_42">
+                                                            <Assign sap:VirtualizedContainerService.HintSize="578,118.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_42">
                                                               <Assign.To>
                                                                 <OutArgument x:TypeArguments="s:DateTime">[assignTime]</OutArgument>
                                                               </Assign.To>
@@ -1145,13 +1146,13 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
 )]</InArgument>
                                                               </Assign.Value>
                                                             </Assign>
-                                                            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim parsedDate As DateTime&#xA;Dim rawValue As Object = CurrentRow(&quot;Time_Assigned&quot;)&#xA;&#xA;If TypeOf rawValue Is DateTime Then&#xA;    parsedDate = CType(rawValue, DateTime)&#xA;&#xA;ElseIf TypeOf rawValue Is String Then&#xA;    Dim textValue As String = rawValue.ToString.Trim&#xA;    Dim formats As String() = {&#xA;        &quot;MM/dd/yyyy HH:mm&quot;,&#xA;        &quot;MM/dd/yyyy HH:mm:ss&quot;,&#xA;        &quot;yyyy-MM-dd HH:mm&quot;,&#xA;        &quot;yyyy-MM-dd HH:mm:ss&quot;&#xA;    }&#xA;&#xA;    Dim success As Boolean = False&#xA;    For Each f As String In formats&#xA;        If DateTime.TryParseExact(textValue, f, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, parsedDate) Then&#xA;            success = True&#xA;            Exit For&#xA;        End If&#xA;    Next&#xA;&#xA;    If Not success Then&#xA;        ' fallback nếu chuỗi không khớp format nào&#xA;        DateTime.TryParse(textValue, parsedDate)&#xA;    End If&#xA;Else&#xA;    ' fallback cho kiểu dữ liệu lạ (DBNull, etc.)&#xA;    parsedDate = DateTime.MinValue&#xA;End If&#xA;&#xA;assignTime = parsedDate&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="578.6666666666666,197.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+                                                            <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim parsedDate As DateTime&#xA;Dim rawValue As Object = CurrentRow(&quot;Time_Assigned&quot;)&#xA;&#xA;If TypeOf rawValue Is DateTime Then&#xA;    parsedDate = CType(rawValue, DateTime)&#xA;&#xA;ElseIf TypeOf rawValue Is String Then&#xA;    Dim textValue As String = rawValue.ToString.Trim&#xA;    Dim formats As String() = {&#xA;        &quot;MM/dd/yyyy HH:mm&quot;,&#xA;        &quot;MM/dd/yyyy HH:mm:ss&quot;,&#xA;        &quot;yyyy-MM-dd HH:mm&quot;,&#xA;        &quot;yyyy-MM-dd HH:mm:ss&quot;&#xA;    }&#xA;&#xA;    Dim success As Boolean = False&#xA;    For Each f As String In formats&#xA;        If DateTime.TryParseExact(textValue, f, System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, parsedDate) Then&#xA;            success = True&#xA;            Exit For&#xA;        End If&#xA;    Next&#xA;&#xA;    If Not success Then&#xA;        ' fallback nếu chuỗi không khớp format nào&#xA;        DateTime.TryParse(textValue, parsedDate)&#xA;    End If&#xA;Else&#xA;    ' fallback cho kiểu dữ liệu lạ (DBNull, etc.)&#xA;    parsedDate = DateTime.MinValue&#xA;End If&#xA;&#xA;assignTime = parsedDate&#xA;" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="578,197.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
                                                               <ui:InvokeCode.Arguments>
                                                                 <OutArgument x:TypeArguments="s:DateTime" x:Key="assignTime" />
                                                                 <InArgument x:TypeArguments="sd:DataRow" x:Key="CurrentRow">[CurrentRow]</InArgument>
                                                               </ui:InvokeCode.Arguments>
                                                             </ui:InvokeCode>
-                                                            <Assign sap:VirtualizedContainerService.HintSize="578.6666666666666,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_43">
+                                                            <Assign sap:VirtualizedContainerService.HintSize="578,117.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_43">
                                                               <Assign.To>
                                                                 <OutArgument x:TypeArguments="x:Double">[timeDiff]</OutArgument>
                                                               </Assign.To>
@@ -1159,33 +1160,33 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                                                 <InArgument x:TypeArguments="x:Double">[(now - assignTime).TotalHours]</InArgument>
                                                               </Assign.Value>
                                                             </Assign>
-                                                            <If Condition="[status = &quot;Done&quot;]" sap:VirtualizedContainerService.HintSize="578.6666666666666,3269.3333333333335" sap2010:WorkflowViewState.IdRef="If_3">
+                                                            <If Condition="[status = &quot;Done&quot;]" sap:VirtualizedContainerService.HintSize="578,3270" sap2010:WorkflowViewState.IdRef="If_3">
                                                               <If.Then>
-                                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="576.6666666666666,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                                                <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="576,227.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_26">
                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                     </scg:Dictionary>
                                                                   </sap:WorkflowViewStateService.ViewState>
-                                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="542.6666666666666,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[“Hoàn tất - Dừng theo dõi”]" />
+                                                                  <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="542,167.33333333333334" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[“Hoàn tất - Dừng theo dõi”]" />
                                                                 </Sequence>
                                                               </If.Then>
                                                               <If.Else>
-                                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="576.6666666666666,2911.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                                                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="576,2912" sap2010:WorkflowViewState.IdRef="Sequence_33">
                                                                   <sap:WorkflowViewStateService.ViewState>
                                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                     </scg:Dictionary>
                                                                   </sap:WorkflowViewStateService.ViewState>
-                                                                  <If Condition="[status = &quot;Assigned&quot;]" sap:VirtualizedContainerService.HintSize="542.6666666666666,2851.3333333333335" sap2010:WorkflowViewState.IdRef="If_4">
+                                                                  <If Condition="[status = &quot;Assigned&quot;]" sap:VirtualizedContainerService.HintSize="542,2852" sap2010:WorkflowViewState.IdRef="If_4">
                                                                     <If.Then>
-                                                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="540.6666666666666,2630.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                                                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="540,2630.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_31">
                                                                         <sap:WorkflowViewStateService.ViewState>
                                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                                           </scg:Dictionary>
                                                                         </sap:WorkflowViewStateService.ViewState>
-                                                                        <If Condition="[timeDiff &gt;= 24 And timeDiff &lt; 48]" sap:VirtualizedContainerService.HintSize="506.6666666666667,2570.6666666666665" sap2010:WorkflowViewState.IdRef="If_5">
+                                                                        <If Condition="[timeDiff &gt;= 24 And timeDiff &lt; 48]" sap:VirtualizedContainerService.HintSize="506,2570.6666666666665" sap2010:WorkflowViewState.IdRef="If_5">
                                                                           <If.Then>
                                                                             <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="504,1079.3333333333333" sap2010:WorkflowViewState.IdRef="Sequence_27">
                                                                               <Sequence.Variables>
@@ -1425,7 +1426,7 @@ Email: " &amp; CurrentRow("Body_Email").ToString]</InArgument>
                                                                       </Sequence>
                                                                     </If.Then>
                                                                     <If.Else>
-                                                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="540.5538461538462,90.09230769230768" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                                                                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="540,90.66666666666667" sap2010:WorkflowViewState.IdRef="Sequence_32">
                                                                         <sap:WorkflowViewStateService.ViewState>
                                                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
